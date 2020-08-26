@@ -1,4 +1,5 @@
 #include <cstdlib>
+#include <cstring>
 #include <stdexcept>
 #include <string>
 
@@ -9,10 +10,13 @@ using namespace std::string_literals;
 
 int main(int argc, char* argv[])
 {
-  auto devs = keylightpp::discover();
-
-  if (argc == 1)
+  if (argc == 1) {
+    std::cout << "Usage: " << basename(argv[0]) << " [LIGHT NAME] CMD [ARGUMENT]\n";
+    std::cout << "  CMD is one of (info|on|off|toggle|brightness|brightness+|brightness-|color|color+|color-)\n";
     return 1;
+  }
+
+  auto devs = keylightpp::discover();
 
   int nextarg = 1;
   auto selected = argc > 2 ? argv[nextarg++] : nullptr;
