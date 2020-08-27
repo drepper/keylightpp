@@ -1,7 +1,7 @@
-Keylight interface
+KeyLight interface
 ==================
 
-This library and utlilities can be used to control Elgate Keylight lamps.
+This library and utlilities can be used to control Elgato KeyLight lamps.
 
 It is required to configure the device using Elgato's programs to use an
 appropriate WiFi network.  After that no further configuration is needed
