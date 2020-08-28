@@ -28,6 +28,7 @@ LIBS = -lcpprest $(shell $(PKG_CONFIG) --libs $(DEPPKGS)) -lpthread
 
 prefix = /usr
 includedir = $(prefix)/include/keylightpp-$(VERSION)
+bindir = $(prefix)/bin
 libdir = $(prefix)/$(shell $(CXX) -print-file-name=libc.so | $(GAWK) -v FS='/' '{ print($$(NF-1)) }')
 pcdir= $(libdir)/pkgconfig
 
@@ -74,6 +75,7 @@ keylightpp.spec: keylightpp.spec.in Makefile
 	$(MV_F) $@-tmp $@
 
 install: libkeylightpp.a keylightpp.pc
+	$(INSTALL) -D -c -m 755 keylight $(DESTDIR)$(bindir)/keylight
 	$(INSTALL) -D -c -m 755 libkeylightpp.so $(DESTDIR)$(libdir)/libkeylightpp-$(VERSION).so
 	$(LN_FS) libkeylightpp-$(VERSION).so $(DESTDIR)$(libdir)/libkeylightpp.so.$(ABI)
 	$(LN_FS) libkeylightpp.so.$(ABI) $(DESTDIR)$(libdir)/libkeylightpp.so
