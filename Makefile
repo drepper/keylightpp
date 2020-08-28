@@ -94,8 +94,8 @@ rpm: dist
 	$(RPMBUILD) -tb keylightpp-$(VERSION).tar.xz
 
 clean:
-	rm -f keylight cli.o libkeylightpp.a libkeylightpp.so keylightpp.o keylightpp.os \
-	      keylightpp.spec keylightpp.pc
+	$(RM_F) keylight cli.o libkeylightpp.a libkeylightpp.so keylightpp.o keylightpp.os \
+	        keylightpp.spec keylightpp.pc
 
 .PHONY: all install dist srpm rpm clean
 .SUFFIXES: .os
