@@ -60,7 +60,7 @@ keylightpp.pc: Makefile
 	libdir=$(libdir)
 
 	Name: KeyLight++
-	Decription: C++ Library to interace with KeyLight devices
+	Description: C++ Library to interace with KeyLight devices
 	Version: $(VERSION)
 	URL: https://github.com/drepper/keylightpp
 	Requires: $(IFACEPKGS)
