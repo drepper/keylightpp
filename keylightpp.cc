@@ -205,7 +205,7 @@ namespace keylightpp {
   unsigned device_type::color_inc(unsigned d)
   {
     unsigned v;
-    if (__builtin_add_overflow(cur_temperature, d, &v))
+    if (__builtin_add_overflow(color_from_dev(cur_temperature), d, &v))
       v = max_color;
     return color(v);
   }
@@ -214,7 +214,7 @@ namespace keylightpp {
   unsigned device_type::color_dec(unsigned d)
   {
     unsigned v;
-    if (__builtin_sub_overflow(cur_temperature, d, &v))
+    if (__builtin_sub_overflow(color_from_dev(cur_temperature), d, &v))
       v = min_color;
     return color(v);
   }
