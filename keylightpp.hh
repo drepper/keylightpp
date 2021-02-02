@@ -21,6 +21,7 @@ namespace keylightpp {
 
     void info();
 
+    bool state() const { return is_on; }
     void on() { power(true); }
     void off() { power(false); }
     bool toggle() { return power(! is_on); }
